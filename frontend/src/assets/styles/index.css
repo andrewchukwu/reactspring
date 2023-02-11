@@ -1,0 +1,9 @@
+@use './mixins/variables' as v;
+.card {
+  font-size: 12px;
+}
+
+.card-title {
+  color: red;
+}
+/*# sourceMappingURL=index.css.map */
