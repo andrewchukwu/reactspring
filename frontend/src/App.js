@@ -32,7 +32,8 @@ import Notifications from 'pages/notifications';
 import Account from 'pages/account'
 import Settings from 'pages/settings';
 
-import Login from 'pages/auth/login';
+import Login, {action as LoginAction} from 'pages/auth/login';
+
 import Signup from 'pages/auth/signup';
 import ResetPassword from 'pages/auth/reset-password';
 
@@ -72,7 +73,10 @@ const router = createBrowserRouter(
 
             </Route>
             <Route path="auth" element={<FullPageLayout/>}>
-                <Route path="login" element={< Login />}/>
+                <Route path="login" 
+                    element={< Login />}
+                    action={LoginAction}
+                />
                 <Route path="signup" element={< Signup />}/>
                 <Route path="reset-password" element={< ResetPassword />}/>
             </Route>

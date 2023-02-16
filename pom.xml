@@ -8,17 +8,22 @@
 		<version>3.0.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.andrewchukwu.spring.demo</groupId>
 	<artifactId>springcra</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springcra</name>
 	<description>Demo Application - Spring Credit Rating Agency</description>
+
 	<properties>
-		<java.version>17</java.version>
+		<Xjava.version>17</Xjava.version>
+		<frontend-src-dir>${project.basedir}/frontend</frontend-src-dir>
 		<frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
 		<node.version>v18.13.0</node.version>
 		<npm.version>v8.19.3</npm.version>
+		<yarn.version>v1.16.0</yarn.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -52,8 +57,12 @@
 				<version>${frontend-maven-plugin.version}</version>
 				<configuration>
 					<workingDirectory>frontend</workingDirectory>
+					<nodeVersion>${node.version}</nodeVersion>
+					<yarnVersion>${yarn.version}</yarnVersion>
+					<installDirectory>${project.build.directory}</installDirectory>
 				</configuration>
 				<executions>
+					<!-- Install node and yarn -->
 					<execution>
 						<id>install node</id>
 						<goals>
@@ -64,6 +73,8 @@
 							<yarnVersion>${yarn.version}</yarnVersion>
 						</configuration>
 					</execution>
+
+					<!-- Install dependencies as listed in package.json-->
 					<execution>
 						<id>yarn install</id>
 						<goals>
@@ -71,6 +82,8 @@
 						</goals>
 						<phase>generate-resources</phase>
 					</execution>
+
+					<!-- Execute tests -->
 					<execution>
 						<id>yarn test</id>
 						<goals>
@@ -84,6 +97,8 @@
 							</environmentVariables>
 						</configuration>
 					</execution>
+
+					<!-- Perform the build so that React all is placed in the build directory -->
 					<execution>
 						<id>yarn build</id>
 						<goals>
@@ -101,6 +116,8 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version>
 				<executions>
+
+					<!-- Copy the built React app into the static directory in the Spring boot project -->
 					<execution>
 						<id>copy-resources</id>
 						<phase>process-classes</phase>
