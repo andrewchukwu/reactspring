@@ -1,13 +1,13 @@
-import WelcomeBanner from '../page/elements/WelcomeBanner';
-import StatsBar from '../page/elements/StatsBar';
-import ProgressProjects from '../page/elements/overview/ProgressProjects';
-import StatsListReport from '../page/elements/overview/StatsListReport';
-import LineChartExample from '../page/elements/overview/LineChartExamples'
-import BarChartExample from '../page/elements/overview/BarChartExample';
-import InvoicesCard from '../page/elements/overview/InvoicesCard';
-import AppsCard from '../page/elements/overview/AppsCard';
-import ToolsCard from '../page/elements/overview/ToolsCard';
-import Footer from 'src/layouts/Footer';
+import WelcomeBanner from 'pages/apphome/components/WelcomeBanner';
+import StatsBar from 'pages/apphome/components/StatsBar';
+import ProgressProjects from 'pages/apphome/components/ProgressProjects';
+import StatsListReport from 'pages/apphome/components/StatsListReport';
+import LineChartExample from 'pages/apphome/components/LineChartExamples'
+import BarChartExample from 'pages/apphome/components/BarChartExample';
+import InvoicesCard from 'pages/apphome/components/InvoicesCard';
+import AppsCard from 'pages/apphome/components/AppsCard';
+import ToolsCard from 'pages/apphome/components/ToolsCard';
+import Footer from 'layouts/Footer';
 
 const Content = () => {
     return (
